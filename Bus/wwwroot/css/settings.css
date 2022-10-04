@@ -1,0 +1,89 @@
+body {
+    font-family: sans-serif;
+}
+
+.main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu {
+    height: 10vh;
+    width: 90%;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+    border-radius: 8px;
+    margin-inline:auto;
+}
+
+    .menu:hover {
+        background-color: #d7ecff;
+        transition-duration: 0.01s;
+    }
+
+.item {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.menu a {
+    color: black;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+}
+
+.back {
+    height: 10px;
+}
+
+i {
+    margin-inline: 2ch;
+}
+
+.net-info-header {
+    display: flex;
+    height: 9ch;
+    width:90%;
+    margin-inline:auto;
+}
+
+    .net-info-header a {
+        height: 5ch;
+        width: 5ch;
+        text-align: center;
+        margin-top:auto;
+        margin-bottom:auto;
+        margin-right:1ch;
+    }
+    .net-info-header i {
+        margin: revert;
+        margin-top:7.5px;
+    }
+    .net-info-header h3 {
+        margin-top: auto;
+        margin-bottom: auto;
+        height: 100%;
+    }
+
+    .net-info-header a:hover {
+        background-color: #d7ecff;
+        border-radius: 8px;
+        transition-duration: 0.01s;
+    }
+
+    .net-info-header h1 {
+        margin-top:auto;
+        margin-bottom:auto;
+        text-align:center;
+    }
+
+.main-title {
+    margin-left: 23px;
+}

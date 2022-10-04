@@ -1,0 +1,27 @@
+﻿@page
+@model Bus.Pages.AllNetworksModel
+@{
+}
+<head>
+	<link rel="stylesheet" href="~/css/fontawesome-free-6.2.0-web/css/all.css" />
+	<style>
+		h2{
+			margin-top:2ch;
+		}
+		.allNet{
+			margin-top: 2ch;
+		}
+		h5{
+			margin:2ch;
+		}
+		i{
+			margin-right:1ch;
+		}
+	</style>
+
+</head>
+<h2>All Networks Information</h2>
+<div class="allNet">
+	<h5><i class="fa-solid fa-route"></i> Number of Lines: @Model.bService.net.nbLines</h5>
+	<h5><i class="fa-solid fa-bus"></i> Number of Stations: @Model.bService.st.nbStations</h5>
+</div>

@@ -1,0 +1,28 @@
+﻿@page
+@model Bus.Pages.lineInfoModel
+@{
+}
+<head>
+	<link rel="stylesheet" href="~/css/info.css" />
+</head>
+<h2>Line Information</h2>
+
+@for (int i = 0; i < Model.bService.net.nbLines; i++)
+{
+
+	<div class="line-div">
+		<div class="line-number">Line Number: @Model.bService.net.lines[i].lineNb</div>
+
+		<div class="items">
+			<div class="line-name">Station Name</div>
+			<div class="line-num">Station ID</div>
+		</div>
+		@for (int j = 0; j < Model.bService.net.lines[i].nbStations; j++)
+		{
+			<div class="items">
+				<div class="line-name">@Model.bService.st.mapStation( @Model.bService.net.stdata[i][j].stnId)</div>
+				<div class="line-num">@Model.bService.net.stdata[i][j].stnId</div>
+			</div>
+		}
+	</div>
+}

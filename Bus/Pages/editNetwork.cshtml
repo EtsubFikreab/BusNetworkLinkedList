@@ -1,0 +1,58 @@
+﻿@page
+@model Bus.Pages.editNetworkModel
+@{
+}
+<head>
+	<link rel="stylesheet" href="~/css/settings.css" />
+	<link rel="stylesheet" href="~/css/fontawesome-free-6.2.0-web/css/all.css" />
+</head>
+
+<body class="body">
+	<div class="main">
+		<div class="net-info-header">
+			<a asp-page="/adminDashboard" class="back">
+				<h2><i class="fa-solid fa-arrow-left"></i></h2>
+			</a>
+			<h1>Edit Network</h1>
+		</div>
+		<div class="menu">
+			<a asp-page="/Edit/AddNewStation" class="item"><i class="fa-solid fa-plus"></i>Introduce a new station</a>
+		</div>
+		<div class="menu">
+			<a asp-page="/selectStation" asp-route-Choice="1" class="item"><i class="fa-solid fa-arrows-rotate"></i>change station name</a>
+		</div>
+		<div class="menu">
+			<a asp-page="/selectStation" asp-route-Choice="1" class="item"><i class="fa-solid fa-arrows-spin"></i>Change station number</a>
+		</div>
+		<div class="menu">
+			<a asp-page="/selectLine" asp-route-Choice="3" class="item"><i class="fa-solid fa-plus"></i>Insert a new station On a line</a>
+		</div>
+		<div class="menu">
+			<a asp-page="/selectLine" asp-route-Choice="4" class="item"><i class="fa-solid fa-trash"></i>Delete station from Line</a>
+		</div>
+		<div class="menu">
+			<a asp-page="/selectStation" asp-route-Choice="2" class="item"><i class="fa-solid fa-trash"></i>Delete Station from network</a>
+		</div>
+		<div class="menu">
+			<a asp-page="/LineInput" class="item"><i class="fa-solid fa-route"></i>Introduce a new line</a>
+		</div>
+		<div class="menu">
+			<a asp-page="/selectLine" asp-route-Choice="1" class="item"><i class="fa-solid fa-arrows-rotate"></i>change line number</a>
+		</div>
+		<div class="menu">
+			<a asp-page="/selectLine" asp-route-Choice="2" class="item"><i class="fa-regular fa-square-minus"></i>Delete a line</a>
+		</div>
+		@if (Model.bService.st.changed == 1 || Model.bService.net.changed == 1)
+		{
+			<div class="menu">
+				<a href="" class="item"><i class="fa-solid fa-check"></i>Network changed</a>
+			</div>
+			<div class="menu">
+				<a href="" class="item"><i class="fa-solid fa-rotate-left"></i>Undo All changes </a>
+			</div>
+		}
+		<div class="menu">
+			<a href="" class="item"><i class="fa-regular fa-circle-xmark"></i>Exit</a>
+		</div>
+	</div>
+</body>

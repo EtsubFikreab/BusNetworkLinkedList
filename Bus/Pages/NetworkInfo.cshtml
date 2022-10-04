@@ -1,0 +1,40 @@
+﻿@page
+@model Bus.Pages.NetworkInfoModel
+@{
+    ViewData["Title"] = "Network Info page";
+}
+<head>
+    <link rel="stylesheet" href="~/css/settings.css" />
+    <link rel="stylesheet" href="~/css/fontawesome-free-6.2.0-web/css/all.css" />
+</head>
+
+<body class="body">
+    <div class="main-net">
+        <div class="net-info-header">
+            <a asp-page="/Index" class="back">
+                <h3><i class="fa-solid fa-arrow-left"></i></h3>
+            </a>
+            <h1>Network Information</h1>
+        </div>
+
+        <div class="menu">
+            <i class="fa-solid fa-circle-nodes"></i><a asp-page="/AllNetworks" class="item">All Network</a>
+        </div>
+        <div class="menu">
+            <i class="fa-solid fa-chart-line"></i>
+            <a asp-page="/lineInfo" class="item">
+                Line information
+            </a>
+        </div>
+        <div class="menu">
+            <i class="fa-solid fa-bus-simple"></i><a asp-page="/stationInformation" class="item">Station Information</a>
+        </div>
+        <div class="menu">
+            <i class="fa-solid fa-route"></i><a href="" class="item">Shortest Path</a>
+        </div>
+        <div class="menu">
+            <i class="fa-regular fa-circle-xmark"></i><a asp-page="/Index" class="item">Exit</a>
+        </div>
+    </div>
+</body>
+

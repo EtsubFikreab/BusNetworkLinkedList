@@ -1,0 +1,43 @@
+* {
+    font-family: sans-serif;
+}
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+.network-title {
+    display: flex;
+    background-color: aliceblue;
+    padding-top:5px;
+    border-radius:10px;
+    margin-bottom:1ch;
+}
+.network-title h3{
+    width:50%;
+    margin-left:2ch;
+}
+.all-network {
+    display: flex;
+    flex-direction: column;
+}
+.net-item{
+    display:flex;
+}
+.net-item h3, h4 {
+    width: 50%;
+    margin-left:3ch;
+}

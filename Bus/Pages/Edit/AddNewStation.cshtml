@@ -1,0 +1,14 @@
+﻿@page
+@model Bus.Pages.AddNewStationModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelper
+@{
+}
+<head>
+    <link rel="stylesheet" href="~/css/form.css" />
+</head>
+<form method="post">
+    <h3 class="form-header">Add new station</h3>
+    <input asp-for="stationName" type="text" name="stationName" id="stationName" placeholder="Station Name">
+    <input asp-for="stationId" type="text" name="stationID" id="stationId" placeholder="Station ID">
+    <button type="submit">Add station</button>
+</form>

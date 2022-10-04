@@ -1,0 +1,13 @@
+﻿@page
+@model Bus.Pages.LineInputModel
+@{
+}
+<head>
+    <link rel="stylesheet" href="~/css/form.css" />
+</head>
+<form method="post">
+    <h3 class="form-header">Introduce a new line</h3>
+    <br>
+    <input asp-for="LineNumber" type="text" name="lineNumber" id="lineNumber" placeholder="Enter a line number">
+    <button type="submit">Save the new line</button>
+</form>

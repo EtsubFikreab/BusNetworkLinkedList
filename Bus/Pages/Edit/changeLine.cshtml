@@ -1,0 +1,92 @@
+﻿@page
+@model Bus.Pages.Edit.changeLineModel
+@{
+}
+<head>
+	<link rel="stylesheet" href="~/css/fontawesome-free-6.2.0-web/css/all.css" />
+	<link rel="stylesheet" href="~/css/form.css" />
+	<link rel="stylesheet" href="~/css/info.css" />
+	<link rel="stylesheet" href="~/css/selectStation.css" />
+</head>
+<style>
+	i {
+		color: green;
+		text-align: center;
+	}
+
+	h1 {
+		text-align: center;
+	}
+
+	.delete-title {
+		margin-top: 5rem;
+		margin-bottom: 1rem;
+	}
+</style>
+@if (Model.Choice == "1")
+{
+	<form method="post">
+		<h3 class="form-header">Change Line number</h3>
+		<br>
+		<p class="oldStation">Old line number: @Model.LineID </p>
+		<input asp-for="NewLineID" type="text" name="NewLineID" id="NewLineID" placeholder="New Line Number" value="@Model.LineID">
+		<button type="submit">Save line info</button>
+	</form>
+}
+else if (Model.Choice == "2")
+{
+	@if (Model.bService.net.deleteLine(int.Parse(Model.LineID)))
+	{
+		<h1 class="delete-title"> Deletion Successful</h1>
+		<h1>
+			<i class="fa-regular fa-circle-check"></i>
+
+		</h1>
+	}
+	else
+	{
+		<h1><i class="fa-regular fa-circle-xmark"></i></h1>
+	}
+
+}
+else if (Model.Choice == "3")
+{
+//insert station
+	<h1>Select Station</h1>
+	<div class="network-title">
+		<h3>Name</h3>
+		<h3>Station ID</h3>
+	</div>
+	<form class="all-network">
+		@for (int i = 0; i < Model.bService.st.nbStations; i++)
+		{
+			<a class="net-item" asp-page="/Edit/ChangeStation" asp-all-route-data="Model.StaionChoices[i]">
+				<h4>
+					@Model.bService.st.stationList[i].name
+				</h4>
+				<h4>
+					@Model.bService.st.stationList[i].stnID
+				</h4>
+			</a>
+		}
+	</form>
+}
+else
+{
+//delete station from line
+	<div class="line-div">
+		<div class="line-number">Line Number: @Model.LineID</div>
+
+		<div class="items">
+			<div class="line-name">Station Name</div>
+			<div class="line-num">Station ID</div>
+		</div>
+		@for (int j = 0; j < Model.bService.net.lines[(Model.bService.net.lineIndex(int.Parse(Model.LineID)))].nbStations; j++)
+		{
+			<a class="items" asp-page="/Edit/ChangeStation" asp-all-route-data="@Model.Choices[j]">
+				<div class="line-name">@Model.bService.st.mapStation( @Model.bService.net.stdata[Model.bService.net.lineIndex(int.Parse(Model.LineID))][j].stnId)</div>
+				<div class="line-num">@Model.bService.net.stdata[Model.bService.net.lineIndex(int.Parse(Model.LineID))][j].stnId</div>
+			</a>
+		}
+	</div>
+}

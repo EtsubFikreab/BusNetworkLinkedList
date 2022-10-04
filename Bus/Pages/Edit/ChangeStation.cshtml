@@ -1,0 +1,63 @@
+﻿@page
+@model Bus.Pages.Edit.ChangeStationModel
+@{
+}
+<head> 
+    <link rel="stylesheet" href="~/css/fontawesome-free-6.2.0-web/css/all.css" />
+    <link rel="stylesheet" href="~/css/form.css" />
+</head>
+<style>
+    i{
+        color:green;
+        text-align:center;
+    }
+    h1{
+        text-align: center;
+    }
+</style>
+@if(Model.Choice=="1"){
+	//Change Station
+    <form method="post">
+        <h3 class="form-header">Edit Station</h3>
+        <br>
+        <p class="oldStation">Old station Number: @Model.StnID</p>
+        <p class="oldStation">Old station Name: @Model.bService.st.mapStation(int.Parse(Model.StnID))</p>
+        <label for="stationNumber">Station Number: </label>
+        <input asp-for="NewStnID" type="text" name="NewStnID" id="stationNumber" placeholder="Station Number" value="@Model.StnID">
+        <label for="stationName">Station Name:</label>
+        <input asp-for="StnName" type="text" name="StnName" id="stationName" placeholder="Station Name" value="@Model.bService.st.mapStation(int.Parse(Model.StnID))">
+        <button type="submit">Save station info</button>
+    </form>
+}
+else if(Model.Choice=="2"){
+    //delete station
+     @if(Model.delStn()){
+        <h1>Deletion Successful</h1>
+        <h1><i class="fa-regular fa-circle-check"></i></h1>
+     }
+     else{
+       <h1><i class="fa-regular fa-circle-xmark"></i></h1>
+     }
+}
+else if(Model.Choice=="3"){
+    //insert station
+    <form method="post">
+        <h3 class="form-header">Insert Station to line</h3>
+        <p class="oldStation">Station Number: @Model.StnID</p>
+        <p class="oldStation">Station Name: @Model.bService.st.mapStation(int.Parse(Model.StnID))</p>
+        <input asp-for="Distance" type="text" name="Distance" id="stationName" placeholder="Station Distance">
+        <button type="submit">Add station</button>
+    </form>
+}
+else if(Model.Choice=="4"){
+    //delete station from Line
+    @if (Model.delStnFromLine())
+    {
+        <h1>Deletion Successful</h1>
+        <h1><i class="fa-regular fa-circle-check"></i></h1>
+    }
+    else
+    {
+        <h1><i class="fa-regular fa-circle-xmark"></i></h1>
+    }
+}

@@ -1,0 +1,29 @@
+.body-edit {
+    width: 50%;
+    margin-inline: auto;
+}
+.net-item{
+    padding:0;
+    margin-top:1ch;
+    display:flex;
+    text-align:center;
+    border-radius:10px;
+    text-decoration:none;
+    background-color:ghostwhite;
+}
+.network-title{
+    text-align:center;
+}
+.network-title h3 {
+    margin: 0;
+    width:50%;   
+}
+.net-item:hover {
+    background-color: gainsboro;
+}
+.net-item h4{
+    margin-left:0;
+    width:50%;
+    margin-top:7px;
+    margin-bottom:7px;
+}

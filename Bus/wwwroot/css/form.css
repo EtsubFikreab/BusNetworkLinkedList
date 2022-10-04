@@ -1,0 +1,49 @@
+* {
+    font-family: sans-serif;
+}
+
+form {
+    margin-top: 10vh;
+    border: 0 solid transparent;
+    margin-inline: auto;
+    text-align: center;
+    border-radius: 20px;
+    overflow: hidden;
+    max-width: 70ch;
+
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.form-header {
+    margin-top: 0;
+    padding: 2ch;
+    background-color: #2B4570;
+    color: aliceblue;
+}
+
+form input {
+    width: 80%;
+    margin: 2ch;
+    margin-inline: auto;
+    height: 3ch;
+    border-radius: 10px;
+    border: 1px solid gainsboro;
+    padding: 5px;
+    padding-inline: 2ch;
+}
+
+form button {
+    width: 30%;
+    margin: 2ch;
+    margin-inline: auto;
+    background-color: #03CEA4;
+    border-radius: 4px;
+    padding: .5ch;
+}
+
+form button:hover {
+    background-color: #03cea57e;
+}

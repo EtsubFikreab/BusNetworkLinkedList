@@ -1,0 +1,38 @@
+﻿@page
+@model Bus.Pages.adminDashboardModel
+@{
+}
+<head>
+    <link rel="stylesheet" href="~/css/settings.css" />
+    <link rel="stylesheet" href="~/css/fontawesome-free-6.2.0-web/css/all.css" />
+</head>
+
+<body class="body">
+<h1 class="main-title">System</h1>
+<div class="main">
+    <div class="menu">
+        <a asp-page="NetworkInfo" class="item">
+            <i class="fa-solid fa-circle-info"></i>
+            Network Information
+        </a>
+    </div>
+    <div class="menu">
+        <a asp-page="/editNetwork" class="item">
+            <i class="fa-solid fa-pencil"></i>
+            Edit Network
+        </a>
+    </div>
+    @if(Model.bService.st.changed==1 || Model.bService.net.changed==1){
+
+    <div class="menu">
+        <a href="" class="item"><i class="fa-solid fa-repeat"></i>Save Changes</a>
+    </div>
+    <div class="menu">
+        <a href="" class="item"><i class="fa-solid fa-rotate-left"></i>Undo All changes</a>
+    </div>
+    }
+    <div class="menu">
+        <a href="" class="item"><i class="fa-regular fa-circle-xmark"></i>Exit</a>
+    </div>
+</div>
+</body>
