@@ -49,20 +49,24 @@ namespace Bus.Pages.Edit
             }
             return false;
         }
-        public bool insertStationOnLine()
+        public void insertStationOnLine()
         {
             int index = bService.net.lineIndex(int.Parse(LineID));
-            //stationData
-            return true;
+            stationData st = new()
+            {
+                stnId = int.Parse(StnID),
+                distance = int.Parse(Distance)
+            };
+            bService.net.lines[index].stationsList.insertBack(st);
+            bService.net.lines[index].nbStations++;
+            bService.net.changed = 1;
         }
         public IActionResult OnPost()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
             if(Choice=="1")
                 bService.st.updateStation(int.Parse(StnID), int.Parse(NewStnID), StnName);
+            if(Choice=="3")
+                insertStationOnLine();
             return RedirectToPage("/editNetwork");
         }
         public void OnGet()

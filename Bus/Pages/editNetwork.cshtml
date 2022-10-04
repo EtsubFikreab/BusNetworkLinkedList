@@ -45,14 +45,14 @@
 		@if (Model.bService.st.changed == 1 || Model.bService.net.changed == 1)
 		{
 			<div class="menu">
-				<a href="" class="item"><i class="fa-solid fa-check"></i>Network changed</a>
+				<a asp-page="/SaveUndo/Save" class="item"><i class="fa-solid fa-check"></i>Save changes</a>
 			</div>
 			<div class="menu">
-				<a href="" class="item"><i class="fa-solid fa-rotate-left"></i>Undo All changes </a>
+				<a asp-page="/SaveUndo/Undo" class="item"><i class="fa-solid fa-rotate-left"></i>Undo All changes </a>
 			</div>
 		}
 		<div class="menu">
-			<a href="" class="item"><i class="fa-regular fa-circle-xmark"></i>Exit</a>
+			<a asp-page="/SaveUndo/UndoAndExit" class="item"><i class="fa-regular fa-circle-xmark"></i>Exit</a>
 		</div>
 	</div>
 </body>

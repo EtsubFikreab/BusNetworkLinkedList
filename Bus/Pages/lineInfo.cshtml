@@ -16,12 +16,14 @@
 		<div class="items">
 			<div class="line-name">Station Name</div>
 			<div class="line-num">Station ID</div>
+			<div class="line-distance">Distance</div>
 		</div>
 		@for (int j = 0; j < Model.bService.net.lines[i].nbStations; j++)
 		{
 			<div class="items">
 				<div class="line-name">@Model.bService.st.mapStation( @Model.bService.net.stdata[i][j].stnId)</div>
 				<div class="line-num">@Model.bService.net.stdata[i][j].stnId</div>
+				<div class="line-distance">@Model.bService.net.stdata[i][j].distance</div>
 			</div>
 		}
 	</div>

@@ -1,18 +1,29 @@
+h2 {
+    width: 80%;
+    margin:2ch;
+    margin-inline: auto;
+}
 .line-div{
     background-color:aliceblue;
     padding:3%;
-    padding-inline:7%;
     border-radius:20px;
     margin-top:2ch;
     margin-bottom:2ch;
+    width:80%;
+    margin-inline:auto;
 }
 .line-number{
     font-size: 2.5ch;
+    margin-bottom:1ch;
+    text-align:center;
 }
 .items{
-    display:flex;
-    justify-content:space-between;
+    display:grid;
+    grid-template-columns: 28vw 28vh 28vw;
+    gap: 15px 10px;
+    justify-items:center;
+    align-items:center;
 }
-.line-name, .line-num {
-    width: 45%;
+.line-name, .line-num, line-distance{
+    
 }

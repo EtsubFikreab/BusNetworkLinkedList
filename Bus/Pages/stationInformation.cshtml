@@ -2,20 +2,32 @@
 @model Bus.Pages.AllNetworkModel
 @{
 }
+<style>
+	.all-network {
+		width: 80%;
+		margin-inline: auto;
+	}
+	h1{
+		width: 80%;
+		margin:1ch;
+		margin-inline: auto;
+	}
+</style>
 <h1>All Stations Information</h1>
-<div class="network-title">
-	<h3>Name</h3>
-	<h3>Station ID</h3>
-</div>
 <div class="all-network">
-@for (int i =0; i < Model.bService.st.nbStations; i++){
-	<div class="net-item">
-	<h4>
-		@Model.bService.st.stationList[i].name
-	</h4>
-	<h5>
-		@Model.bService.st.stationList[i].stnID
-	</h5>
+	<div class="network-title">
+		<h3>Name</h3>
+		<h3>Station ID</h3>
 	</div>
-}
+	@for (int i = 0; i < Model.bService.st.nbStations; i++)
+	{
+		<div class="net-item">
+			<h4>
+				@Model.bService.st.stationList[i].name
+			</h4>
+			<h5>
+				@Model.bService.st.stationList[i].stnID
+			</h5>
+		</div>
+	}
 </div>
