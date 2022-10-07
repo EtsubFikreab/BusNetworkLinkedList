@@ -4,6 +4,8 @@
     align-items: center;
     height: 80vh;
     font-family: sans-serif;
+    font-weight: 100;
+    text-align: center;
 }
 
     .home-body a {
@@ -30,9 +32,14 @@
     .home-body img {
         width: 100%;
     }
-    a h4{
+
+    .home-body h4 {
+        margin:0;
         margin-top:1ch;
+        font-weight: 300;
+        width:80%;
     }
+
     .home-body .img-holder {
         width: 100%;
         height: 80%;

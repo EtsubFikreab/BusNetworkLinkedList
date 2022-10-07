@@ -1,26 +1,26 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+	ViewData["Title"] = "Home page";
 }
 <head>
-    <link rel="stylesheet" href="~/css/signin.css">
+	<link rel="stylesheet" href="~/css/signin.css">
 </head>
 <div class="home-body">
-        <a asp-page="/adminDashboard" class="admin">
-        <div class="img-holder">
-            <img src="~/images/360_F_173102509_fq805hYrQ4dc0XKuIQeqaM4si4IDpEjL.jpg" alt="">
-        </div>
-        <h4>
-            Admin
-        </h4>
-    </a>
-    <a class="user" asp-page="/NetworkInfo">
-        <div class="img-holder">
-            <img src="~/images/standard.jpg" alt="">
-        </div>
-        <h4>
-            Standard User
-        </h4>
-    </a>
+	<a asp-page="/adminDashboard" class="admin">
+		<div class="img-holder">
+			<img src="~/images/360_F_173102509_fq805hYrQ4dc0XKuIQeqaM4si4IDpEjL.jpg" alt="">
+		</div>
+		<h4>
+			Admin
+		</h4>
+	</a>
+	<a class="user" asp-page="/NetworkInfo">
+		<div class="img-holder">
+			<img src="~/images/standard.jpg" alt="">
+		</div>
+		<h4>
+			Standard User
+		</h4>
+	</a>
 </div>

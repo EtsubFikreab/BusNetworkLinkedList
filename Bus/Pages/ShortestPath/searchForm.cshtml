@@ -1,0 +1,13 @@
+﻿@page
+@model Bus.Pages.ShortestPath.searchFormModel
+@{
+}
+<head>
+    <link rel="stylesheet" href="~/css/form.css" />
+</head>
+<form method="post">
+    <h3 class="form-header">Add new station</h3>
+    <input asp-for="stationName1" type="text" name="stationName" id="stationName" placeholder="1st Station Name">
+    <input asp-for="stationName2" type="text" name="stationID" id="stationId" placeholder="2nd Station Name">
+    <button type="submit">Search</button>
+</form>

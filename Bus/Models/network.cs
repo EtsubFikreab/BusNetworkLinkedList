@@ -66,6 +66,7 @@ namespace Bus.Models
         }
         public int noLinesPerStation(int stnID)
         {
+            //number of lines passing through a station
             int counter = 0;
             Node<stationData>? temp;
             for (int i = 0; i < nbLines; i++)
@@ -84,18 +85,11 @@ namespace Bus.Models
             return counter;
         }
 
-        public int LineThrStation()
+        public List<int> LineThrStation(int stnID)
         {
             //The function returns the first line, the second line and so on passing through a station controlled by the order value.
-            //The function returns -1 if there is no line passing through the station.
-            int order = 0;
-            int stnID = 0;
-            int counter = 0;
             Node<stationData>? temp;
-            Console.WriteLine("Enter the station ID: ");
-            stnID = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter the order: ");
-            order = Convert.ToInt32(Console.ReadLine());
+            List<int> linesThr = new List<int>();
             for (int i = 0; i < nbLines; i++)
             {
                 temp = lines[i].stationsList.front;
@@ -103,42 +97,33 @@ namespace Bus.Models
                 {
                     if (stnID == temp.data.stnId)
                     {
-                        counter++;
-                        if (counter == order)
-                            return lines[i].lineNb;
+                        linesThr.insertBack(lines[i].lineNb);
                         break;
                     }
                     temp = temp.next;
                 }
             }
-            return -1;
+            return linesThr;
         }
-        public int directLine(int stnID)
+        public bool directLine(int stnID1, int stnID2, int lineID)
         {
             //The function returns whether or not there is a direct line between two stations using a given line number/id
-            int lineID = 0;
-            int counter = 0;
-            Node<stationData>? temp;
-            Console.WriteLine("Enter the line ID: ");
-            lineID = Convert.ToInt32(Console.ReadLine());
-            for (int i = 0; i < nbLines; i++)
+            bool flag1 = false;
+            bool flag2 = false;
+            Node<stationData>? temp = lines[lineIndex(lineID)].stationsList.front;
+            while (temp != null)
             {
-                if (lines[i].lineNb == lineID)
+                if (stnID1 == temp.data.stnId)
                 {
-                    temp = lines[i].stationsList.front;
-                    while (temp != null)
-                    {
-                        if (stnID == temp.data.stnId)
-                        {
-                            counter++;
-                            if (counter == 2)
-                                return 1;
-                        }
-                        temp = temp.next;
-                    }
+                    flag1 = true;
                 }
+                else if (stnID2 == temp.data.stnId)
+                {
+                    flag2 = true;
+                }
+                temp = temp.next;
             }
-            return -1;
+            return flag1 && flag2;
         }
         public List<stationData>[] displayLinesForward()
         {
@@ -159,11 +144,31 @@ namespace Bus.Models
             }
             return backward;
         }
-        /*public float distance()
+        public float distance(int stnID1, int stnID2, int lineID)
         {
-
+            //distance between two stations in terms of actual distance
+            float d1, d2, distance;
+            d1 = d2 = 0; //initialized because of compiler warning
+            Node<stationData>? temp = lines[lineIndex(lineID)].stationsList.front;
+            while (temp != null)
+            {
+                if (stnID1 == temp.data.stnId)
+                {
+                    d1 = temp.data.distance;
+                }
+                else if (stnID2 == temp.data.stnId)
+                {
+                    d2 = temp.data.distance;
+                }
+                temp = temp.next;
+            }
+            if (d1 > d2)
+                distance = d1 - d2;
+            else
+                distance = d2 - d1;
+            return distance;
         }
-        public List shortestPath()
+        /*public List shortestPath()
         {
 
         }*/
@@ -208,8 +213,8 @@ namespace Bus.Models
         }
         public bool deleteLine(int lineID)
         {
-            for (int i = lineIndex(lineID); i < nbLines; )
-            { 
+            for (int i = lineIndex(lineID); i < nbLines;)
+            {
                 lines[i] = lines[++i];
             }
             nbLines--;
