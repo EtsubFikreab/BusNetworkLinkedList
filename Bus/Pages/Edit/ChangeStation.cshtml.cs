@@ -55,7 +55,7 @@ namespace Bus.Pages.Edit
             stationData st = new()
             {
                 stnId = int.Parse(StnID),
-                distance = int.Parse(Distance)
+                distance = float.Parse(Distance)
             };
             bService.net.lines[index].stationsList.insertBack(st);
             bService.net.lines[index].nbStations++;
